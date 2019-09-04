@@ -3,6 +3,7 @@ import Vue from 'vue'
 import main from '../components/Main'
 import home from '../components/Home'
 import myinfo from '../components/MyInfo'
+import todolist from '../components/ToDoList'
 
 Vue.use(VueRouter)
 
@@ -15,7 +16,13 @@ const router = new VueRouter({
                 children: [
                     {
                         path: 'home',
-                        component: home
+                        component: home,
+                        children: [
+                            {
+                                path: 'todolist',
+                                component: todolist
+                            }
+                        ]
                     },
                     {
                         path: 'myinfo',

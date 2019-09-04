@@ -1,10 +1,10 @@
 <template>
-  <div id="app">
+  <div>
     <h1>Jquery To Do List</h1>
     <p>Simple Todo List with adding and filter by diff status.</p>
     <input class="input-text" type="text" name="listInfo" id="listInfo" />
     <button @click="addList">add</button>
-    <Item v-for="n in getlistInfo()" v-bind:key="n" v-bind:index="n"></Item>
+    <Item v-for="n in 5" v-bind:key="n" v-bind:index="n" />
     <ul id="filters">
       <li>
         <a href="#" data-filter="all">ALL</a>
@@ -20,12 +20,15 @@
 </template>
 
 <script>
-import Item from "./Items";
+import Item from "./Item.vue";
 export default {
   data() {
     return {
       myListObject: {}
     };
+  },
+  components: {
+    Item
   },
   methods: {
     addList() {
