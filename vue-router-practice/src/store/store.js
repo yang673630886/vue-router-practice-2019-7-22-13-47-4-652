@@ -5,9 +5,18 @@ Vue.use(Vuex);
 
 const storeConfig = new Vuex.Store({
     state: {
-       
+        todoList: []
     },
     mutations: {
+        pushList: function (state, myListObject) {
+            state.todoList.push(myListObject)
+            let oldList = state.todoList;
+            state.todoList = [];
+            for (let i = 0; i < oldList.length; i++) {
+                state.todoList.push(oldList[i])
+            }
+            
+        }
         // callMutationAll(state, data) {
         //     state.msg1 = data.msg1;
         //     state.msg2 = data.msg2
@@ -31,12 +40,17 @@ const storeConfig = new Vuex.Store({
 
     },
     getters: {
-        // getmsg1: function (state) {
-        //     return state.msg1
-        // },
-        // getmsg2: function (state) {
-        //     return state.msg2
-        // }
+        getList(state) {
+            let result = [];
+            window.console.log(state.todoList[0].info)
+            for (let i = 0; i < state.todoList.length; i++){
+                result.push(state.todoList[i].info)
+            }
+            return result
+        },
+        getOneList(state,index){
+            return state.todoList[index-1].info
+        }
     }
 })
 
