@@ -1,5 +1,6 @@
 <template>
     <div>
-        <h1>main</h1>
+        <h1>welcome</h1>
+        <router-view></router-view>
     </div>
 </template>
